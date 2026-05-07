@@ -18,6 +18,20 @@ hr {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 陰影 */
 }
 
+.linkedin-icon img {
+  width: 25px !important;
+  height: 25px !important;
+  object-fit: contain;
+  margin-left: 8px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.linkedin-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
 /* ── 導覽列（RWD折疊版） ── */
 .navbar {
   position: fixed;
