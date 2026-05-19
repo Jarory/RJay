@@ -627,3 +627,36 @@ footer {
     font-size: 0.85rem;
   }
 }
+
+/* yt */
+#youtube {
+  text-align: center;
+}
+
+.yt-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.yt-card {
+  width: 60%;
+  min-width: 260px; /* 防止手機太小爆掉 */
+  max-width: 420px;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.yt-card:hover {
+  transform: translateY(-4px);
+}
+
+.yt-thumbnail img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
