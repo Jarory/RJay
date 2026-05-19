@@ -642,7 +642,7 @@ footer {
 }
 
 .yt-card {
-  width: 60%;
+  width: 40%;
   min-width: 260px; /* 防止手機太小爆掉 */
   max-width: 420px;
   display: block;
