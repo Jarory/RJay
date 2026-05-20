@@ -628,35 +628,126 @@ footer {
   }
 }
 
-/* yt */
-#youtube {
-  text-align: center;
-}
+/* ════════════════════════════════════════
+   YouTube 影片展示區
+════════════════════════════════════════ */
+.video-card {
+  max-width: 1100px;
+  margin: auto;
 
-.yt-grid {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
+  background: white;
+  border-radius: 24px;
 
-.yt-card {
-  width: 40%;
-  min-width: 260px; /* 防止手機太小爆掉 */
-  max-width: 420px;
-  display: block;
-  border-radius: 12px;
   overflow: hidden;
-  transition: 0.2s;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  gap: 32px;
+
+  padding: 32px;
+  box-sizing: border-box;
 }
 
-.yt-card:hover {
-  transform: translateY(-4px);
-}
+/* 左側影片 */
+.video-wrapper {
+  flex: 1.2;
+  min-width: 0;
 
-.yt-thumbnail img {
+  position: relative;
   width: 100%;
-  display: block;
+  aspect-ratio: 16/9;
+
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 右側文字 */
+.video-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.video-info h3 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  margin-bottom: 16px;
+}
+
+.video-info p {
+  line-height: 1.8;
+  color: #555;
+  font-size: clamp(0.95rem, 1vw, 1.05rem);
+}
+
+/* YouTube按鈕 */
+.yt-btn {
+  margin-top: 24px;
+
+  display: inline-block;
+
+  background: #ff0000;
+  color: white;
+
+  text-decoration: none;
+
+  padding: 14px 22px;
   border-radius: 12px;
+
+  transition: 0.25s;
+  font-weight: bold;
+
+  width: fit-content;
+}
+
+.yt-btn:hover {
+  transform: translateY(-2px);
+  background: #cc0000;
+}
+
+/* ════════════════════════════════════════
+   平板RWD
+════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .video-card {
+    flex-direction: column;
+    padding: 22px;
+  }
+
+  .video-info {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* ════════════════════════════════════════
+   手機RWD
+════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .video-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .video-info h3 {
+    font-size: 1.25rem;
+  }
+
+  .video-info p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .yt-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
