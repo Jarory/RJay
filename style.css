@@ -892,3 +892,20 @@ footer {
     height: 380px;
   }
 }
+
+.project-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.github-link {
+  color: black;
+  font-size: 28px;
+  transition: 0.2s;
+}
+
+.github-link:hover {
+  transform: scale(1.15);
+}
