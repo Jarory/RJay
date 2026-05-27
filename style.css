@@ -1,3 +1,6 @@
+/* ════════════════════════════════════════
+   1. 基礎全域設定
+   ════════════════════════════════════════ */
 html {
   scroll-behavior: smooth;
 }
@@ -7,51 +10,36 @@ body {
   font-family: Arial, sans-serif;
   background: #f5f7fa;
   color: #333;
-}
-
-/* ---------------------------------
-   1. 電腦版預設（螢幕寬度 1025px 以上）
------------------------------------- */
-.container {
-  display: flex;
-  flex-direction: row; /* 左右並排 */
-  gap: 24px; /* 卡片之間的間距 */
-  width: 100%;
-}
-
-/* ---------------------------------
-   2. 平板與手機版（螢幕寬度 1024px 以下）
------------------------------------- */
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column; /* 改為上下垂直排列 */
-    gap: 20px; /* 上下卡片之間的間距 */
-  }
-
-  /* 讓影片和網站容器在平板/手機上都能完美撐滿寬度 */
-  .video-wrapper,
-  .website-wrapper {
-    flex: 1 1 100%;
-    width: 100%;
-  }
-}
-
-/* ---------------------------------
-   3. 手機版微調（螢幕寬度 480px 以下，可選）
------------------------------------- */
-@media (max-width: 480px) {
-  .container {
-    gap: 16px; /* 手機版間距稍微縮小，更省空間 */
-  }
+  overflow-x: hidden; /* 確保全站絕不出現左右網頁捲軸 */
 }
 
 hr {
   width: 60%;
-  border: none; /* 移除預設線條 */
-  height: 1px; /* 線條厚度 */
-  background-color: #aaa; /* 灰色 */
-  margin: 20px auto; /* 置中 */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 陰影 */
+  border: none;
+  height: 1px;
+  background-color: #aaa;
+  margin: 20px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border, #ddd) 20%,
+    var(--color-primary, #4a90e2) 50%,
+    var(--color-border, #ddd) 80%,
+    transparent
+  );
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.linkedin-icon {
+  display: inline-flex;
+  align-items: center;
 }
 
 .linkedin-icon img {
@@ -60,15 +48,11 @@ hr {
   object-fit: contain;
   margin-left: 8px;
   vertical-align: middle;
-  object-fit: contain;
 }
 
-.linkedin-icon {
-  display: inline-flex;
-  align-items: center;
-}
-
-/* ── 導覽列（RWD折疊版） ── */
+/* ════════════════════════════════════════
+   2. 導覽列（修正後完美防溢出 RWD 版）
+   ════════════════════════════════════════ */
 .navbar {
   position: fixed;
   top: 0;
@@ -80,13 +64,11 @@ hr {
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   z-index: 1000;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0 24px;
-  box-sizing: border-box;
+  box-sizing: border-box; /* 防止 padding 撐開總寬度 */
 }
 
 .logo {
@@ -102,7 +84,6 @@ hr {
   color: #4a90e2;
 }
 
-/* 右側連結 */
 .nav-links {
   display: flex;
   justify-content: flex-end;
@@ -126,7 +107,6 @@ hr {
   color: #4a90e2;
 }
 
-/* 漢堡按鈕 */
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -134,60 +114,15 @@ hr {
   user-select: none;
 }
 
-/* 手機/平板折疊 */
-@media (max-width: 1920px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    max-height: 0;
-    overflow: hidden;
-    gap: 0;
-
-    transition: max-height 0.35s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  }
-
-  .nav-links.active {
-    max-height: 400px;
-  }
-
-  .nav-links li {
-    width: 100%;
-    text-align: center;
-    border-top: 1px solid #eee;
-    padding: 14px 0;
-  }
-
-  .nav-links li a {
-    font-size: 1rem;
-    display: block;
-    width: 100%;
-  }
-}
-
-/* ── 區塊 ── */
-/* .section {
-  padding: 8% 20px 2%;
-} */
+/* ════════════════════════════════════════
+   3. 區塊與基本卡片排版
+   ════════════════════════════════════════ */
 .section {
   padding: 40px 20px;
 }
+
 #about {
-  padding-top: 120px;
+  padding-top: 120px; /* 留出 fixed 導覽列的空間 */
 }
 
 .section-title {
@@ -198,7 +133,6 @@ hr {
   color: #333;
 }
 
-/* ── 卡片 ── */
 .card {
   background: white;
   padding: 20px;
@@ -213,7 +147,6 @@ hr {
   transform: translateY(-5px);
 }
 
-/* ── 個人區 ── */
 .profile {
   display: flex;
   gap: 20px;
@@ -226,33 +159,33 @@ hr {
   flex-shrink: 0;
 }
 
-/* ── 輪播容器 ── */
+/* ════════════════════════════════════════
+   4. 精美輪播圖組件（持有證照 / 參賽獎狀）
+   ════════════════════════════════════════ */
 .carousel {
   position: relative;
   max-width: 640px;
   margin: 0 auto;
   height: 460px;
   border-radius: 20px;
-  overflow: hidden; /* 讓圓角對圖片生效 */
+  overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   background: #1a1a1a;
 }
 
-/* ── 圖片軌道 ── */
 .carousel-track {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-/* ── 所有輪播圖片 ── */
 .carousel-track img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 預設：完整顯示（適合證照） */
+  object-fit: contain;
   opacity: 0;
   transition: opacity 0.5s ease;
   pointer-events: none;
@@ -263,12 +196,10 @@ hr {
   pointer-events: auto;
 }
 
-/* ── 風景照專用：cover 填滿 ── */
 .carousel-track.cover-mode img {
   object-fit: cover;
 }
 
-/* ── 左右按鈕 ── */
 .carousel button {
   position: absolute;
   top: 50%;
@@ -303,12 +234,10 @@ hr {
 .carousel .prev {
   left: 14px;
 }
-
 .carousel .next {
   right: 14px;
 }
 
-/* ── 底部：指示點 + 計數 ── */
 .carousel-footer {
   position: absolute;
   bottom: 5%;
@@ -350,134 +279,11 @@ hr {
   background-color: rgba(128, 128, 128, 0.582);
 }
 
-/* ── 響應式(舊版本) ── */
-/* @media (max-width: 768px) {
-  .profile {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .navbar ul {
-    display: none;
-  }
-
-  .carousel {
-    height: 300px;
-    border-radius: 14px;
-  }
-} */
-
-/* 響應式(新版本) */
-@media (max-width: 768px) {
-  .navbar {
-    padding: 8px 12px;
-    min-height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .navbar a {
-    font-size: 1rem;
-  }
-
-  .logo {
-    font-size: 1rem;
-  }
-
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .nav-links li a {
-    font-size: 0.72rem;
-  }
-
-  .carousel {
-    height: 260px;
-    border-radius: 14px;
-  }
-}
-/* 手機版第一區高度縮短 */
-@media (max-width: 768px) {
-  #about {
-    padding-top: 95px;
-  }
-}
-/* 自我介紹卡片手機版排版 */
-@media (max-width: 768px) {
-  .card {
-    width: 92%;
-    padding: 18px 14px;
-  }
-
-  .profile {
-    flex-direction: column;
-    text-align: center;
-    gap: 12px;
-  }
-
-  .profile img {
-    width: 95px;
-  }
-
-  .profile-info h2 {
-    font-size: 1.4rem;
-    margin: 8px 0 15px;
-  }
-
-  .profile-info p {
-    font-size: 1rem;
-    line-height: 1.7;
-    margin: 8px 0;
-  }
-}
-/* 文字縮排 */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px;
-  }
-
-  .section-title {
-    font-size: 1.15rem;
-    margin-bottom: 16px;
-  }
-
-  h3 {
-    font-size: 1rem;
-  }
-}
-/* 縮間距 */
-@media (max-width: 768px) {
-  .section {
-    padding: 45px 10px;
-  }
-}
-
-.section-divider {
-  border: none;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--color-border) 20%,
-    var(--color-primary) 50%,
-    var(--color-border) 80%,
-    transparent
-  );
-  max-width: 860px;
-  margin: 0 auto;
-}
-
 /* ════════════════════════════════════════
-   雙欄區塊（區域三 + 四並排）
+   5. 雙欄輪播排列區（證照與獎狀並排）
    ════════════════════════════════════════ */
 .section--dual {
-  max-width: 100%; /* 比單欄更寬，容納兩個輪播 */
+  max-width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 0;
@@ -486,115 +292,23 @@ hr {
 
 .dual-col {
   flex: 1;
-  min-width: 0; /* 防止 flex 子項溢出 */
+  min-width: 0;
 }
 
-/* 中間垂直分隔線 */
 .dual-divider {
   width: 1px;
   align-self: stretch;
-  margin: 20px 2%; /* 上下留白 + 左右間距 */
+  margin: 20px 2%;
   flex-shrink: 0;
 }
 
-/* 雙欄模式下輪播高度縮小，避免太高 */
 .section--dual .carousel {
   height: 380px;
 }
 
 /* ════════════════════════════════════════
-   響應式：小螢幕雙欄改單欄
+   6. 小遊戲展示區（Grid 排版）
    ════════════════════════════════════════ */
-@media (max-width: 900px) {
-  .section--dual {
-    flex-direction: column;
-  }
-
-  .dual-divider {
-    width: auto;
-    height: 1px;
-    align-self: auto;
-    background: linear-gradient(
-      to right,
-      transparent,
-      var(--color-border) 20%,
-      var(--color-primary) 50%,
-      var(--color-border) 80%,
-      transparent
-    );
-    margin: 0 0 32px 0;
-  }
-
-  .section--dual .carousel {
-    height: 300px;
-  }
-}
-footer {
-  background-color: rgb(155, 153, 153);
-  margin: 0px;
-  padding: 5px;
-  text-align: center;
-}
-
-/* ───────── 手機版：持有證照/參賽獎狀重排 ───────── */
-@media (max-width: 899px) {
-  .section--dual {
-    display: flex;
-    flex-direction: column;
-    gap: 35px;
-    padding: 40px 10px;
-  }
-
-  .dual-col {
-    width: 100%;
-  }
-
-  .dual-col .section-title {
-    font-size: 1.15rem;
-    margin-bottom: 14px;
-  }
-
-  /* 中間分隔線直接隱藏 */
-  .dual-divider {
-    display: none;
-  }
-
-  /* 手機輪播寬度撐滿 */
-  .section--dual .carousel {
-    width: 100%;
-    max-width: 100%;
-    height: 250px;
-    margin: 0 auto;
-  }
-
-  /* 左右按鈕縮小 */
-  .carousel button {
-    width: 32px;
-    height: 32px;
-    font-size: 14px;
-  }
-
-  .carousel .prev {
-    left: 8px;
-  }
-
-  .carousel .next {
-    right: 8px;
-  }
-
-  /* 計數器縮小 */
-  .carousel-counter {
-    font-size: 10px;
-    padding: 3px 6px;
-  }
-
-  .carousel-dots .dot {
-    width: 6px;
-    height: 6px;
-  }
-}
-
-/* ───────── 小遊戲區 ───────── */
 .game-grid {
   max-width: 1100px;
   margin: auto;
@@ -636,85 +350,43 @@ footer {
   line-height: 1.5;
 }
 
-/* 平板 */
-@media (max-width: 900px) {
-  .game-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 手機 */
-@media (max-width: 768px) {
-  .game-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 5px;
-  }
-
-  .game-card img {
-    height: 190px;
-  }
-
-  .game-card h3 {
-    font-size: 1rem;
-  }
-
-  .game-card p {
-    font-size: 0.85rem;
-  }
-}
-
 /* ════════════════════════════════════════
-   YouTube 影片展示區
-════════════════════════════════════════ */
+   7. YouTube 獨立影片展示區
+   ════════════════════════════════════════ */
 .video-card {
   max-width: 1100px;
   margin: auto;
-
   background: white;
   border-radius: 24px;
-
   overflow: hidden;
-
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
   display: flex;
   gap: 32px;
-
   padding: 32px;
   box-sizing: border-box;
 }
 
-/* 左側影片 */
 .video-wrapper {
   flex: 1.2;
   min-width: 0;
-
   position: relative;
   width: 100%;
-  /* 1. 使用現代 aspect-ratio 控制 16:9 比例 */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9; /* 現代高相容完美比例 */
   border-radius: 18px;
   overflow: hidden;
-
-  /* 2. 移除 height: 100px 和 padding-bottom，避免空間衝突 */
 }
 
 .video-wrapper iframe {
-  /* 3. 讓 iframe 填滿整個 16:9 的容器 */
   width: 100%;
   height: 100%;
   border: none;
-
   position: absolute;
   top: 0;
   left: 0;
 }
 
-/* 右側文字 */
 .video-info {
   flex: 1;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -731,23 +403,16 @@ footer {
   font-size: clamp(0.95rem, 1vw, 1.05rem);
 }
 
-/* YouTube按鈕 */
 .yt-btn {
   margin-top: 24px;
-
   display: inline-block;
-
   background: #ff0000;
   color: white;
-
   text-decoration: none;
-
   padding: 14px 22px;
   border-radius: 12px;
-
   transition: 0.25s;
   font-weight: bold;
-
   width: fit-content;
 }
 
@@ -757,71 +422,21 @@ footer {
 }
 
 /* ════════════════════════════════════════
-   平板RWD
-════════════════════════════════════════ */
-@media (max-width: 900px) {
-  .video-card {
-    flex-direction: column;
-    padding: 22px;
-  }
-
-  .video-info {
-    text-align: center;
-    align-items: center;
-  }
-}
-
-/* ════════════════════════════════════════
-   手機RWD
-════════════════════════════════════════ */
-@media (max-width: 600px) {
-  .video-card {
-    padding: 16px;
-    border-radius: 18px;
-  }
-
-  .video-info h3 {
-    font-size: 1.25rem;
-  }
-
-  .video-info p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .yt-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* ========================================
-   作品展示區
-======================================== */
-
+   8. 個人作品展示區（網頁內嵌 + 影片並排區）
+   ════════════════════════════════════════ */
 .project-grid {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 32px;
-
   max-width: 1400px;
-
   margin: auto;
 }
 
-/* 卡片 */
-
 .project-card {
   background: white;
-
   border-radius: 24px;
-
   padding: 24px;
-
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-
   transition: 0.3s;
 }
 
@@ -831,25 +446,32 @@ footer {
 
 .project-card h3 {
   margin-bottom: 18px;
-
   font-size: 1.3rem;
-
   text-align: center;
 }
 
-/* ========================================
-   網站展示
-======================================== */
+.project-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.github-link {
+  color: black;
+  font-size: 28px;
+  transition: 0.2s;
+}
+
+.github-link:hover {
+  transform: scale(1.15);
+}
 
 .website-wrapper {
-  /* 1. 改用彈性寬度，讓外層 Flexbox 決定寬度 */
   flex: 1;
   min-width: 0;
-
   width: 100%;
-  /* 2. 移除 height: 300px，改用 16/9 比例與左邊同步 */
-  aspect-ratio: 16 / 9;
-
+  aspect-ratio: 16 / 9; /* 💡 核心修正：與左側影片完美同步 16:9 高度 */
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid #ddd;
@@ -862,27 +484,16 @@ footer {
   background: white;
 }
 
-/* 外部連結 */
-
 .project-link {
   display: block;
-
   margin-top: 18px;
-
   text-align: center;
-
   text-decoration: none;
-
   padding: 14px;
-
   border-radius: 14px;
-
   background: #4a90e2;
-
   color: white;
-
   font-weight: bold;
-
   transition: 0.25s;
 }
 
@@ -890,42 +501,218 @@ footer {
   background: #3578c9;
 }
 
-/* ========================================
-   平板
-======================================== */
+footer {
+  background-color: rgb(155, 153, 153);
+  margin: 0px;
+  padding: 5px;
+  text-align: center;
+}
 
-@media (max-width: 1000px) {
+/* ════════════════════════════════════════
+   9. 關鍵精確全球響應式（RWD）媒體查詢
+   ════════════════════════════════════════ */
+
+/* ── 斷點 A：大平板與筆電（1024px 以下） ── */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block; /* 啟用漢堡鈕 */
+  }
+
+  .nav-links {
+    position: fixed; /* 使用 fixed 防止撐開網頁實體寬度 */
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    gap: 0;
+    transition: max-height 0.35s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.active {
+    max-height: 400px;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding: 14px 0;
+  }
+
+  .nav-links li a {
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+  }
+
+  /* 作品展示區自動切換為一欄垂直排列，徹底移除寫死的高度，完全走 16:9 比例 */
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 10px;
   }
 
   .website-wrapper {
-    width: 100%;
-    height: 260px;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    border: 1px solid #ddd;
+    height: auto; /* 💡 修正：移除寫死高度 */
+    aspect-ratio: 16 / 9;
   }
 }
 
-/* ========================================
-   手機
-======================================== */
+/* ── 斷點 B：標準中型平板（900px 以下） ── */
+@media (max-width: 900px) {
+  /* 證照/獎狀區轉上下單欄 */
+  .section--dual {
+    flex-direction: column;
+    gap: 35px;
+    padding: 40px 10px;
+  }
 
+  .dual-col {
+    width: 100%;
+  }
+
+  /* 隱藏垂直分隔線 */
+  .dual-divider {
+    display: none;
+  }
+
+  .section--dual .carousel {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  /* 縮小按鈕與組件計數器 */
+  .carousel button {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .carousel .prev {
+    left: 8px;
+  }
+  .carousel .next {
+    right: 8px;
+  }
+  .carousel-counter {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+  .carousel-dots .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* 遊戲區改為兩欄 */
+  .game-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* YouTube 區改垂直排列 */
+  .video-card {
+    flex-direction: column;
+    padding: 22px;
+  }
+  .video-info {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+/* ── 斷點 C：標準智慧型手機（768px 以下） ── */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .section {
+    padding: 45px 10px;
+  }
+  #about {
+    padding-top: 95px;
+  }
+  .section-title {
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+  }
+
+  /* 自我介紹卡片手機版排版微調 */
+  .card {
+    width: 92%;
+    padding: 18px 14px;
+  }
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .profile img {
+    width: 95px;
+  }
+  .profile-info h2 {
+    font-size: 1.4rem;
+    margin: 8px 0 15px;
+  }
+  .profile-info p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 8px 0;
+  }
+
+  /* 遊戲區改單欄 */
+  .game-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 5px;
+  }
+  .game-card img {
+    height: 190px;
+  }
+  .game-card h3 {
+    font-size: 1rem;
+  }
+  .game-card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ── 斷點 D：小型手機與微調（600px 以下） ── */
 @media (max-width: 600px) {
+  /* YouTube 區更緊湊 */
+  .video-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+  .video-info h3 {
+    font-size: 1.25rem;
+  }
+  .video-info p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .yt-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 作品內嵌網頁修正 */
   .project-card {
     padding: 18px;
   }
-
   .project-card h3 {
     font-size: 1.1rem;
   }
-
   .website-wrapper {
-    height: 380px;
+    height: auto; /* 💡 核心修正：移除舊版寫死的 380px，強制和影片一樣走完美的 16:9 */
+    aspect-ratio: 16 / 9;
   }
 }
 
