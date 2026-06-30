@@ -29,7 +29,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-family: "Noto Serif TC", serif;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -212,7 +213,10 @@ hr {
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
   box-shadow: 0 4px 20px rgba(28, 28, 26, 0.04);
-  transition: border-color 0.2s, box-shadow 0.3s, transform 0.3s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.3s,
+    transform 0.3s;
 }
 
 .card:hover {
@@ -256,7 +260,9 @@ hr {
 .fade-in {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .fade-in-visible {
@@ -424,7 +430,9 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, transform 0.15s;
+  transition:
+    background 0.2s,
+    transform 0.15s;
 }
 
 .carousel button:hover {
@@ -464,7 +472,9 @@ hr {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.35);
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s;
 }
 
 .carousel-dots .dot.active {
@@ -530,7 +540,10 @@ hr {
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(28, 28, 26, 0.04);
   cursor: pointer;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
   text-align: center;
 }
 
@@ -652,7 +665,10 @@ hr {
   border-radius: var(--radius-card);
   padding: 28px;
   box-shadow: 0 4px 20px rgba(28, 28, 26, 0.04);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -750,7 +766,7 @@ hr {
   max-width: 1400px;
   margin: 90px auto 40px;
   color: var(--ink-soft);
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -921,7 +937,8 @@ hr {
   text-transform: uppercase;
 }
 
-footer, .footer {
+footer,
+.footer {
   background: var(--bg);
   border-top: 1px solid var(--line);
   margin: 0;
