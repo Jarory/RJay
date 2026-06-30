@@ -38,17 +38,25 @@
       <img src="比賽照片/大頭.jpg" alt="大頭貼">
       <div class="profile-info">
         <h2>王彥傑
-  <a href="https://tw.linkedin.com/in/%E5%BD%A5%E5%82%91-%E7%8E%8B-08b9ab408"
-     target="_blank"
-     class="linkedin-icon">
-     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-          alt="LinkedIn">
-  </a></h2>
-        <p><span class="label">生日：</span>93/01/10</p>
-        <p><span class="label">學歷：</span>國立高雄科技大學第一校區 資訊管理系（大四就讀中）</p>
-        <p><span class="label">個性：</span>隨和、負責任、有求知慾、做事盡全力、堅持到底</p>
-        <p><span class="label">專長：</span>文書處理、資料蒐集與彙整、前端網頁設計(學習中)、MySQL(學習中)</p>
-        <p><span class="label">興趣：</span>拼圖、電子競技、觀山</p>
+  <span class="profile-socials">
+    <a href="https://tw.linkedin.com/in/%E5%BD%A5%E5%82%91-%E7%8E%8B-08b9ab408"
+       target="_blank"
+       class="linkedin-icon">
+       <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn">
+    </a>
+    <a href="https://github.com/Jarory"
+       target="_blank"
+       class="github-icon"
+       aria-label="GitHub">
+       <i class="fa-brands fa-github"></i>
+    </a>
+  </span></h2>
+        <p><i class="fa-solid fa-cake-candles info-icon"></i><span class="label">生日：</span>93/01/10</p>
+        <p><i class="fa-solid fa-graduation-cap info-icon"></i><span class="label">學歷：</span>國立高雄科技大學第一校區 資訊管理系（大四就讀中）</p>
+        <p><i class="fa-solid fa-lightbulb info-icon"></i><span class="label">個性：</span>隨和、負責任、有求知慾、做事盡全力、堅持到底</p>
+        <p><i class="fa-solid fa-screwdriver-wrench info-icon"></i><span class="label">專長：</span>文書處理、資料蒐集與彙整、前端網頁設計(學習中)、MySQL(學習中)</p>
+        <p><i class="fa-solid fa-gamepad info-icon"></i><span class="label">興趣：</span>拼圖、電子競技、觀山</p>
       </div>
     </div>
   </section>
@@ -60,14 +68,18 @@
     <div class="card">
 
       <h3 class="card-subtitle">工作經歷</h3>
-      <b>逐鹿炭火燒肉：內場工讀生 2022/06 - 2022/08</b>
-      <p>負責內場食材處理、擺盤、整理食材並保持整潔、接單並製作餐點</p>
-      <b>高雄科技大學第一校區創新創業發展處：比賽志工　2025/10 2025/06</b>
-      <p>架設器材、幫助參賽者調整簡報、拍攝、引導人員入場、處理臨時狀況</p>
-      <!-- <ul>
-        <li>逐鹿炭火燒肉：內場工讀生　2022/06 - 2022/08</li>
-        <li>高雄科技大學第一校區創新創業發展處：比賽志工　2025/10</li>
-      </ul> -->
+      <ul class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-year">2025</span>
+          <b>高雄科技大學第一校區創新創業發展處：比賽志工</b>　2025/10 - 2025/06
+          <p>架設器材、幫助參賽者調整簡報、拍攝、引導人員入場、處理臨時狀況</p>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-year">2022</span>
+          <b>逐鹿炭火燒肉：內場工讀生</b>　2022/06 - 2022/08
+          <p>負責內場食材處理、擺盤、整理食材並保持整潔、接單並製作餐點</p>
+        </li>
+      </ul>
 
       <h3 class="card-subtitle">持有證照</h3>
       <ul>
@@ -197,13 +209,16 @@
         <a
           href="https://github.com/Jarory/LoginTest"
           target="_blank"
-          class="github-link">
+          class="github-link"
+          aria-label="GitHub">
 
           <i class="fa-brands fa-github"></i>
 
         </a>
 
       </h3>
+
+      <p class="project-desc">會員註冊、登入與身分驗證系統，串接 JWT 驗證機制與 MySQL 資料庫。</p>
 
       <div class="video-wrapper">
         <iframe
@@ -213,6 +228,16 @@
           allowfullscreen>
         </iframe>
       </div>
+
+      <div class="tech-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">JWT</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+
       <a
         class="project-link"
         href="https://logintest-yhla.onrender.com/index.html"
@@ -234,13 +259,16 @@
         <a
           href="https://github.com/Jarory/ExpenseTracker"
           target="_blank"
-          class="github-link">
+          class="github-link"
+          aria-label="GitHub">
 
           <i class="fa-brands fa-github"></i>
 
         </a>
 
       </h3>
+
+      <p class="project-desc">簡單易用的個人收支紀錄工具，資料儲存於本機端，無需後端伺服器。</p>
 
       <div class="website-wrapper">
 
@@ -249,6 +277,12 @@
           title="記帳網站">
         </iframe>
 
+      </div>
+
+      <div class="tech-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">LocalStorage</span>
       </div>
 
       <a
@@ -272,13 +306,16 @@
         <a
           href="https://github.com/Jarory/TodoApp"
           target="_blank"
-          class="github-link">
+          class="github-link"
+          aria-label="GitHub">
 
           <i class="fa-brands fa-github"></i>
 
         </a>
 
       </h3>
+
+      <p class="project-desc">以 Vue 開發的待辦事項管理工具，支援新增、編輯與分類篩選。</p>
 
       <div class="website-wrapper">
 
@@ -287,6 +324,12 @@
           title="Todo APP">
         </iframe>
 
+      </div>
+
+      <div class="tech-tags">
+        <span class="tag">Vue</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">CSS</span>
       </div>
       
       <a
@@ -300,6 +343,52 @@
 
     </div>
 
+  </div>
+
+  <!-- ════════ Featured Project ════════ -->
+  <div class="featured-divider">
+    <span>Featured Project</span>
+  </div>
+
+  <div class="featured-project">
+    <div class="featured-project__media">
+      <iframe
+        src="https://logintest-yhla.onrender.com/index.html"
+        title="跨平台自動化交易系統 Preview"
+        loading="lazy">
+      </iframe>
+    </div>
+    <div class="featured-project__body">
+      <p class="featured-project__eyebrow">系統整合・自動化交易</p>
+      <h3 class="featured-project__title">
+        跨平台自動化交易系統
+        <a
+          href="https://github.com/Jarory"
+          target="_blank"
+          class="github-link"
+          aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </h3>
+      <p class="featured-project__subtitle">TradingView × Make × Capital.com</p>
+      <p class="featured-project__desc">
+        整合 TradingView 訊號、Make 自動化流程與 Capital.com API，實現跨平台訊號接收、條件判斷與自動下單的完整交易自動化系統，展現系統整合、API 串接與流程自動化能力。
+      </p>
+      <div class="tech-tags">
+        <span class="tag">TradingView</span>
+        <span class="tag">Pine Script</span>
+        <span class="tag">Webhook</span>
+        <span class="tag">Make</span>
+        <span class="tag">Capital API</span>
+        <span class="tag">Automation</span>
+      </div>
+      <a
+        class="project-link featured-project__link"
+        href="https://logintest-yhla.onrender.com/index.html"
+        target="_blank">
+        完整介紹 ↗
+      </a>
+    </div>
   </div>
 
 </section>
@@ -344,20 +433,27 @@
     <h2 class="section-title">聯絡資訊</h2>
     <div class="card contact-card">
       <div class="contact-item">
-        <span class="contact-label">Email：</span>
+        <i class="fa-solid fa-envelope contact-icon"></i>
+        <span class="contact-label">Email</span>
         <a href="mailto:jaywang8514@gmail.com">jaywang8514@gmail.com</a>
       </div>
       <div class="contact-item">
-        <span class="contact-label">Phone：0908-118-732</span>
+        <i class="fa-solid fa-phone contact-icon"></i>
+        <span class="contact-label">Phone</span>
+        <span>0908-118-732</span>
       </div>
       <div class="contact-item">
-        <span class="contact-label">Line：0908-118-732</span>
+        <i class="fa-brands fa-line contact-icon"></i>
+        <span class="contact-label">Line</span>
+        <span>0908-118-732</span>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>版權所有 ©2026王彥傑 All Rights Reserved.</p>
+    <p>© 2026 Wang Yan-Jie</p>
+    <p>Built with HTML, CSS, JavaScript</p>
+    <p>Last Updated : June 2026</p>
   </footer>
 
   <script src="script.js"></script>
