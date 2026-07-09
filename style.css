@@ -656,7 +656,6 @@ hr {
   gap: 28px;
   max-width: 1400px;
   margin: auto;
-  align-items: stretch;
 }
 
 .project-card {
@@ -671,7 +670,7 @@ hr {
     transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -1094,6 +1093,7 @@ footer,
 
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .card {
